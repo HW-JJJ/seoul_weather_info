@@ -2,7 +2,7 @@ name: Fetch weather seoul Date #서울 날씨 정보 수집
 
 on: # 작업 수행 조건
   schedule:
-    cron: "*/30 * * * *" # 옵션
+   - cron: "*/1 * * * *" # 옵션
   workflow_dispatch: # 수동으로 동작
   push:  # 언제 동작시킬 것인지
     branches:
@@ -12,7 +12,7 @@ jobs: # 실행할 작업 정의
     runs-on: ubuntu-lastes # linux os ubuntu 최신 버전
 
     steps: #실행 동작 단계
-      - name: # 저장소 체크아웃
+      - name: 저장소 체크아웃
         uses: actions/checkout@v3 # 현재 github 저장소를 clone
         with: # 옵션
           token: ${{secrets.GITHUB_TOKEN}} # 자신의 GITHUB 권한 사용
